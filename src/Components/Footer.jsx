@@ -7,9 +7,14 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PhoneIcon from "@mui/icons-material/Phone";
+// import Link  from 'react-router-dom';
+
+
+
 
 function Footer() {
   const footerLinks = [
+    
     {
       title: "App",
       links: ["Trade", "Download"],

@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import {  Route, Routes } from 'react-router-dom'
 import './index.css'
 import About from './Components/About'
 
@@ -35,6 +35,7 @@ function App() {
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", }}>
       {/* <ResponsiveAppBar />  */}
       <TemporaryDrawer/>
+    
 
       <Routes>
        
@@ -47,6 +48,7 @@ function App() {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/contact-us" element={<Contact/>} />
       </Routes>
+      
       
 
       <Footer /> 
