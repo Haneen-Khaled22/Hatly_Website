@@ -1,10 +1,10 @@
 import { Route, Routes } from 'react-router-dom'
 import './index.css'
 import About from './Components/About'
-import ResponsiveAppBar from './Components/AppBar'
+
 import Contact from './Components/Contact'
 import Home from './Components/Home'
-import FirstSection from './Components/MainSection'
+
 import Footer from './Components/Footer'
 import { useEffect, useState } from 'react'
 import Loader from './Components/Loader/Loader'
