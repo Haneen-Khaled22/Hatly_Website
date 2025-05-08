@@ -19,15 +19,24 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   // Let create async method to fetch fake data
+
+    useEffect(()=>{
+    setIsLoading(false);
+
+  },[]);
+
   useEffect(() => {
     const fakeDataFetch = () => {
       setTimeout(() => {
         setIsLoading(false);
       }, 4000);
     };
+    
 
     fakeDataFetch();
   }, []);
+
+
 
   return isLoading ? (
     <Loader />
@@ -44,6 +53,7 @@ function App() {
         <Route path="/about-us" element={<About />} />
          <Route path="/" element={<Home />} />
           <Route path="/frequently-asked" element={<FrequentlyAsked />} />
+          
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/contact-us" element={<Contact/>} />
