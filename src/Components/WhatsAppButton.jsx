@@ -15,7 +15,7 @@ const WhatsAppButton = () => {
       style={{
         position: 'fixed',
         bottom: '10px',
-        right: '10px',
+        right: '5px',
         zIndex: 1000,
         margin: '20px',
       }}
