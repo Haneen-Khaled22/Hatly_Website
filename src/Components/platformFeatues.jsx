@@ -4,9 +4,9 @@ import Box from "@mui/material/Box";
 import { styled } from '@mui/material/styles';
 import { Slide, Fade, Zoom } from "react-awesome-reveal";
 
-import shipping from "../images/affordableshipping.png";
-import money from "../images/earn money.png";
-import eco from "../images/eco.png";
+import shipping from "../images/shipping-removebg-preview.png";
+import money from "../images/eaarn-removebg-preview.png";
+// import eco from "../images/eco.png";
 
 const FeatureCard = styled(Box)(({ theme }) => ({
   display: 'flex',
@@ -14,33 +14,22 @@ const FeatureCard = styled(Box)(({ theme }) => ({
   alignItems: 'center',
   padding: theme.spacing(3),
   borderRadius: '16px',
-  background: 'white',
-  boxShadow: '0 8px 32px rgba(31, 38, 135, 0.1)',
   height: 'auto',
   minHeight: '400px',
   position: 'relative',
   overflow: 'hidden',
   transition: 'all 0.3s ease',
   '&:hover': {
-    transform: 'translateY(-5px)',
-    boxShadow: '0 12px 40px rgba(31, 38, 135, 0.15)'
-  },
-  '&:before': {
-    content: '""',
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '4px',
-    background: `linear-gradient(to right, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`
+    transform: 'translateY(-5px)'
   }
 }));
 
 const FeatureImage = styled('img')(({ theme }) => ({
-  width: '100%',
+  width: '180px',
   height: '180px',
   objectFit: 'cover',
   marginBottom: theme.spacing(2),
+  borderRadius: '50%',
   [theme.breakpoints.up('md')]: {
     '&:hover': {
       transform: 'scale(1.03)'
@@ -67,20 +56,6 @@ const SectionTitle = styled(Typography)(({ theme }) => ({
   }
 }));
 
-const InfoBadge = styled(Box)(({ theme, gradientcolors }) => ({
-  background: gradientcolors 
-    ? `linear-gradient(135deg, ${gradientcolors.start || '#f6f7ff'}, ${gradientcolors.end || '#e0e1ff'})`
-    : 'linear-gradient(135deg, #f6f7ff, #e0e1ff)',
-  borderRadius: '12px',
-  padding: theme.spacing(2),
-  marginTop: theme.spacing(2),
-  width: '100%',
-  transition: 'all 0.3s ease',
-  '&:hover': {
-    transform: 'translateY(-3px)'
-  }
-}));
-
 function PlatformFeatures() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
@@ -88,49 +63,22 @@ function PlatformFeatures() {
   const features = [
     {
       title: "Affordable Shipping",
-      description: "By using travelers as couriers, Hatly provides a cheaper alternative to traditional international shipping companies.",
+      description: "By using travelers as couriers,\nHatly provides a cheaper alternative\nto traditional shipping companies.",
       image: shipping,
-      direction: "left",
-      info: {
-        title: "Cost Savings",
-        items: [
-          "Traditional shipping: $50-$100",
-          <span style={{ color: '#4141DA' }}>Hatly shipping: $20-$40</span>,
-          "Save up to 60% on costs"
-        ],
-        gradient: { start: '#f3f4ff', end: '#d9dbff' }
-      }
+      direction: "left"
     },
     {
       title: "Earn While You Travel",
-      description: "Travelers can earn money effortlessly without much extra effort, making it an attractive option for people already planning trips.",
+      description: "Travelers can earn money effortlessly\nwithout much extra effort, making it\nan attractive option for travelers.",
       image: money,
-      direction: "right",
-      info: {
-        title: "Earning Potential",
-        items: [
-          "Average earnings per trip:",
-          <span style={{ color: '#4141DA' }}>$50 - $200</span>,
-          "Flexible package sizes"
-        ],
-        gradient: { start: '#fff4f4', end: '#ffdfdf' }
-      }
+      direction: "right"
     },
-    {
-      title: "Eco-Friendly",
-      description: "Since travelers are already going to their destinations, we reduce environmental impact compared to traditional shipping methods.",
-      image: eco,
-      direction: "left",
-      info: {
-        title: "Environmental Impact",
-        items: [
-          "Reduces carbon emissions by:",
-          <span style={{ color: '#4141DA' }}>70-80%</span>,
-          "Compared to air freight"
-        ],
-        gradient: { start: '#f0fff4', end: '#d0ffdf' }
-      }
-    }
+    // {
+    //   title: "Eco-Friendly",
+    //   description: "Since travelers are already going to their destinations, we reduce environmental impact compared to traditional shipping methods.",
+    //   image: eco,
+    //   direction: "left"
+    // }
   ];
 
   return (
@@ -190,34 +138,6 @@ function PlatformFeatures() {
                         {feature.description}
                       </Typography>
                     </Fade>
-
-                    <Slide direction="right" cascade>
-                      <InfoBadge gradientcolors={feature.info.gradient}>
-                        <Typography variant="subtitle1" component="h4" gutterBottom sx={{ 
-                          fontWeight: 600,
-                          color: theme.palette.text.primary,
-                          mb: 1
-                        }}>
-                          {feature.info.title}
-                        </Typography>
-                        <Box sx={{ 
-                          '& > div': {
-                            mb: 1,
-                            fontSize: '0.95rem',
-                            color: theme.palette.text.secondary
-                          },
-                          '& > div:nth-of-type(2)': {
-                            fontWeight: 600,
-                            color: '#4141DA',
-                            fontSize: '1.1rem'
-                          }
-                        }}>
-                          {feature.info.items.map((item, i) => (
-                            <div key={i}>{item}</div>
-                          ))}
-                        </Box>
-                      </InfoBadge>
-                    </Slide>
                   </Box>
                 </FeatureCard>
               </Slide>
