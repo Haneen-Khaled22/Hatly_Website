@@ -19,20 +19,20 @@ function App() {
     const fakeDataFetch = () => {
       setTimeout(() => {
         setIsLoading(false);
-      }, 4000);
+      }, 2000);
     };
 
     fakeDataFetch();
   }, []);
 
-  return isLoading ? (
-    <Loader />
-  ) : (
+  return  (
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       <TemporaryDrawer />
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        
+       
+        <Route path="/" element={isLoading?<Loader/>:<Home />} />
         <Route path="/about-us" element={<About />} />
         <Route path="/contact-us" element={<Contact />} />
         <Route path="/frequently-asked" element={<FrequentlyAsked />} />
@@ -41,7 +41,7 @@ function App() {
       </Routes>
 
       <Footer />
-      <WhatsAppButton />
+      {isLoading?null:<WhatsAppButton />}
     </div>
   );
 }
